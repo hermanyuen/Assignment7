@@ -15,4 +15,31 @@
 //Use the `delete` keyword to delete the copy constructor and assignment operator for the probe.
 
 class PROJECTCODE_API Probe
-{};
+{
+public:
+	Probe() = default;
+	Probe(int instCount);
+	Probe(const Probe& copy) = delete; //no copy
+	//Probe(const std::string& );
+	//Probe(const std::string& firstName);
+
+	//~Probe();
+
+	~Probe() = default;
+
+	Probe operator+(Probe a1);
+	Probe operator++(int);
+	Probe operator++();
+	Probe operator--(int);
+	Probe operator--();
+	Probe &operator =(const Probe&) = delete; //no assignmnet
+	static int getInstanceCount();
+	friend std::ostream& operator<<(std::ostream& os, const Probe& probe);
+
+private:
+	
+
+#if 0
+	static int ourInstanceCount;
+#endif
+};

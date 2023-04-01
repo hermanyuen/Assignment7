@@ -19,8 +19,12 @@ class PROJECTCODE_API Target
 public:
     Target();
     ~Target();
+    //const Probe* getTargetProbe();
+    friend std::ostream& operator<<(std::ostream& os, const Target& target);
     //TODO: implement
 private:
+    Probe instances;
+    
     //TODO: implement
 };
 

@@ -32,3 +32,8 @@
 //3. Describe why the compiler generated copy constructor and copy assignment operators are sufficient for DynamicArray.
 
 //TODO: write some good unit tests!
+
+//I keep getting C2220 and C4100 error 'result_': unreferenced formal parameter
+//TEST(test1, testo) {
+//
+//}
