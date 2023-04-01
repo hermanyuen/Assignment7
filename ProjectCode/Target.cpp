@@ -16,3 +16,26 @@
 
 //TODO: implement
 
+Target::Target() {
+    ++instances;
+}
+
+
+Target::~Target()
+{
+    --instances;
+}
+
+//const Probe* Target::getTargetProbe() {
+//    //const Probe* temp = &instances;
+//    return &instances;
+//    // return temp;
+//    //return instances;
+//}
+
+std::ostream& operator<<(std::ostream& os, const Target& targetInstance)
+{
+    os << targetInstance.instances.getInstanceCount;
+    //os << targetInstance.getTargetProbe();//.getInstanceCount();
+    return os;
+}

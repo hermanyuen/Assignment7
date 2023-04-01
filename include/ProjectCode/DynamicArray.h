@@ -1,6 +1,6 @@
 #pragma once
 #include "ProjectCode_API.h"
-
+#include <vector>
 //An array is a common structure for storing information.In many languages, one must specify the size of the array in advance of its use.
 //Frequently, however, one does not know how much data will need to be stored.
 //A common solution is to declare the array to be much larger than is expected to be necessary hoping it will be large enough.
@@ -29,8 +29,23 @@
 //2. Write an overloaded ostream operator to display the contents of the array.
 //
 
-class PROJECTCODE_API DynamicArray
+class DynamicArray
 {
+public:
+	PROJECTCODE_API DynamicArray(int nElements);
+	//DynamicArray(const DynamicArray& array);
+	PROJECTCODE_API ~DynamicArray();
+	PROJECTCODE_API void put(int index, int value);
+	PROJECTCODE_API int get(int index) const;
+	PROJECTCODE_API void remove(int index);
+	PROJECTCODE_API int operator[] (int index) const;
+	PROJECTCODE_API int& operator[] (int index);
+	
+private:
+	int mySize;
+	std::vector<int> array;
 	//3. Describe why the compiler generated copy constructor and copy assignment operators are sufficient for DynamicArray.
 	//YOUR ANSWER GOES HERE
+	//I think it's because vectors have their own copy constructor and destructor so there's no need for DynamicArray class to have one. 
+	//Same thing with the assignment operators.
 };
