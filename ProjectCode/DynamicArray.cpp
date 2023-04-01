@@ -26,3 +26,49 @@
 // * Provide a non - const member function overload which allows the data to be overwritten at the specified array index.
 //
 //2. Write an overloaded ostream operator to display the contents of the array.
+
+#if 0
+int DynamicArray::mySize = 0;
+
+#else
+namespace
+{
+	std::vector<int> array;
+	int mySize;
+}
+#endif
+
+
+DynamicArray::DynamicArray(int nElements) : mySize(nElements) {
+	//this->mySize = nElements;
+	array.assign(nElements, -1);
+}
+
+//DynamicArray::DynamicArray(const DynamicArray& array) {
+//
+//}
+
+DynamicArray::~DynamicArray() {
+
+}
+
+int DynamicArray::operator[] (int index) const{
+	return DynamicArray::get(index);
+}
+
+int& DynamicArray::operator[] (int index) {
+	return array[index];
+	//return array.at(index);
+}
+
+void DynamicArray::put(int index, int value) {
+	array.insert(array.begin() + index, value);
+	++mySize;
+}
+int DynamicArray::get(int index) const {
+	return array.at(index);
+}
+void DynamicArray::remove(int index) {
+	array.erase(array.begin() + index);
+	--mySize;
+}
