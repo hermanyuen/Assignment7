@@ -46,4 +46,6 @@ private:
 	std::vector<int> array;
 	//3. Describe why the compiler generated copy constructor and copy assignment operators are sufficient for DynamicArray.
 	//YOUR ANSWER GOES HERE
+	//I think it's because vectors have their own copy constructor and destructor so there's no need for DynamicArray class to have one. 
+	//Same thing with the assignment operators.
 };

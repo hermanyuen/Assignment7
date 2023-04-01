@@ -33,7 +33,42 @@
 
 //TODO: write some good unit tests!
 
-//I keep getting C2220 and C4100 error 'result_': unreferenced formal parameter
-//TEST(test1, testo) {
-//
-//}
+TEST(putTest, DynamicArrayTest) {
+	DynamicArray array(0);
+	for (int i = 0; i < 6; ++i) {
+		array.put(i, i);
+	}
+	
+	CHECK_EQUAL(1, array.get(1));
+	CHECK_EQUAL(2, array.get(2));
+	CHECK_EQUAL(3, array.get(3));
+	CHECK_EQUAL(4, array.get(4));
+	CHECK_EQUAL(5, array.get(5));
+
+}
+
+TEST(removeTest, DynamicArrayTest1) {
+	DynamicArray array(0);
+	for (int i = 0; i < 7; ++i) {
+		array.put(i, i);
+	}
+	array.remove(3);
+	CHECK_EQUAL(1, array.get(1));
+	CHECK_EQUAL(2, array.get(2));
+	CHECK_EQUAL(4, array.get(3));
+	CHECK_EQUAL(5, array.get(4));
+	CHECK_EQUAL(6, array.get(5));
+}
+
+TEST(arrayTest, DynamicArray2) {
+	DynamicArray array(0);
+	for (int i = 0; i < 10; ++i) {
+		array.put(i, i);
+	}
+	array[0] = 90;
+	array[5] = 100;
+	array[9] = 1;
+	CHECK_EQUAL(90, array.get(0));
+	CHECK_EQUAL(100, array.get(5));
+	CHECK_EQUAL(1, array.get(9));
+}
